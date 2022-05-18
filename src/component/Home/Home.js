@@ -5,14 +5,13 @@ export default function Home() {
   return (
     <div>
       <Typography
-        style={{ marginTop: 20 }}
+        style={{ marginTop: 20, marginBottom: 80 }}
         variant="h5"
         align="center"
         color="#EE4622"
       >
         Dengarkan Dan Rasakan
       </Typography>
-      ;
       <Cards />
     </div>
   );

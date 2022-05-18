@@ -16,6 +16,8 @@ export default function HideAppBar({
   anchorElNav,
   handleOpenNavMenu,
   handleCloseNavMenu,
+  handleOpen,
+  ModalLogin,
 }) {
   return (
     <React.Fragment>
@@ -48,6 +50,7 @@ export default function HideAppBar({
                 sx={{ pl: 3, pr: 3, mr: 3 }}
                 color="inherit"
                 variant="outlined"
+                onClick={handleOpen}
               >
                 Login
               </Button>
@@ -129,7 +132,7 @@ export default function HideAppBar({
           Discovery, Stream, and share a constantly expanding mix of music from
           emerging and major artists around the world
         </Typography>
-        ;
+        {ModalLogin}
       </Container>
     </React.Fragment>
   );
