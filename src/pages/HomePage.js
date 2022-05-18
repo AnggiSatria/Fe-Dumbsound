@@ -1,16 +1,40 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { selectUser, LOGIN_SUCCESS } from "../redux/userSlice";
+// import { useSelector, useDispatch } from "react-redux";
+// import { selectUser, LOGIN_SUCCESS } from "../redux/userSlice";
+import ResponsiveAppBar from "../component/Appbar";
+import Home from "../component/Home/Home";
 
 export function HomePage() {
-  const count = useSelector(selectUser);
-  const dispatch = useDispatch();
-  console.log(count);
+  const pages = ["Login", "Register"];
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
 
   return (
-    <div>
-      <h1>Cek</h1>
-      <button onClick={() => dispatch(LOGIN_SUCCESS())}>-</button>
+    <div style={{ backgroundColor: "black" }}>
+      <div
+        style={{
+          backgroundImage: `url(${require("../assets/bgheader.png")})`,
+          height: 512,
+        }}
+      >
+        <ResponsiveAppBar
+          pages={pages}
+          anchorElNav={anchorElNav}
+          setAnchorElNav={setAnchorElNav}
+          handleOpenNavMenu={handleOpenNavMenu}
+          handleCloseNavMenu={handleCloseNavMenu}
+        />
+      </div>
+      <div>
+        <Home />
+      </div>
     </div>
   );
 }
