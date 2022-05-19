@@ -12,7 +12,7 @@ import Avatar from "@mui/material/Avatar";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 
-export default function AppbarUser({
+export default function AppbarAdmin({
   handleOpenNavMenu,
   handleCloseNavMenu,
   pages,

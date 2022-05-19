@@ -31,12 +31,12 @@ export default function AppbarHome({
             <Box sx={{ flexGrow: 1, mt: 1 }}>
               <img
                 style={{ marginRight: 10 }}
-                src={require("../../assets/logo.png")}
+                src={require("../../assets/img/logo.png")}
                 alt="..."
               />
               <img
                 style={{ marginBottom: 5 }}
-                src={require("../../assets/text.png")}
+                src={require("../../assets/img/text.png")}
                 alt="..."
               />
             </Box>
@@ -107,12 +107,12 @@ export default function AppbarHome({
           <Box sx={{ flexGrow: 1, mt: 1, display: { xs: "flex", md: "none" } }}>
             <img
               style={{ marginRight: 10 }}
-              src={require("../../assets/logo.png")}
+              src={require("../../assets/img/logo.png")}
               alt="..."
             />
             <img
               style={{ marginBottom: 5 }}
-              src={require("../../assets/text.png")}
+              src={require("../../assets/img/text.png")}
               alt="..."
             />
           </Box>

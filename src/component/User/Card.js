@@ -49,7 +49,7 @@ export default function Cards() {
                   style={{ padding: 10, borderRadius: 20 }}
                   component="img"
                   height="194"
-                  image={require("../../assets/bgheader.png")}
+                  image={require("../../assets/img/bgheader.png")}
                   alt="Paella dish"
                 />
                 <Box

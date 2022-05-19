@@ -19,7 +19,7 @@ export default function UserPage() {
     <div style={{ backgroundColor: "black" }}>
       <div
         style={{
-          backgroundImage: `url(${require("../assets/bgheader.png")})`,
+          backgroundImage: `url(${require("../assets/img/bgheader.png")})`,
           height: 630,
         }}
       >
