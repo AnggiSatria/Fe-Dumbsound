@@ -16,8 +16,10 @@ export default function HideAppBar({
   anchorElNav,
   handleOpenNavMenu,
   handleCloseNavMenu,
-  handleOpen,
+  handleOpenLogin,
   ModalLogin,
+  ModalRegister,
+  handleOpenRegister,
 }) {
   return (
     <React.Fragment>
@@ -50,11 +52,16 @@ export default function HideAppBar({
                 sx={{ pl: 3, pr: 3, mr: 3 }}
                 color="inherit"
                 variant="outlined"
-                onClick={handleOpen}
+                onClick={handleOpenLogin}
               >
                 Login
               </Button>
-              <Button size="small" variant="contained" color="error">
+              <Button
+                size="small"
+                onClick={handleOpenRegister}
+                variant="contained"
+                color="error"
+              >
                 Register
               </Button>
             </Box>
@@ -133,6 +140,7 @@ export default function HideAppBar({
           emerging and major artists around the world
         </Typography>
         {ModalLogin}
+        {ModalRegister}
       </Container>
     </React.Fragment>
   );

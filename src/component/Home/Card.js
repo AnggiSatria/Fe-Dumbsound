@@ -2,7 +2,6 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
@@ -58,19 +57,18 @@ export default function Cards() {
                     display: "flex",
                     flexDirection: "row",
                     justifyContent: "space-between",
-                    mb: 1,
                   }}
                 >
                   <Typography
                     style={{ padding: 10 }}
-                    variant="h5"
+                    variant="h6"
                     color="white"
                   >
                     Circles
                   </Typography>
                   <Typography
                     style={{ padding: 10 }}
-                    variant="h5"
+                    variant="h6"
                     color="white"
                   >
                     2019

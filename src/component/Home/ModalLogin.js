@@ -5,13 +5,13 @@ import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
-export default function ModalLogin({ open, handleClose }) {
+export default function ModalLogin({ openLogin, handleCloseLogin }) {
   const style = {
     position: "absolute",
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 600,
+    width: { xs: 350, md: 600 },
     bgcolor: "#161616",
     border: "2px solid #000",
     boxShadow: 24,
@@ -21,36 +21,48 @@ export default function ModalLogin({ open, handleClose }) {
   return (
     <div>
       <Modal
-        open={open}
-        onClose={handleClose}
+        open={openLogin}
+        onClose={handleCloseLogin}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
           <Box
             sx={{
-              width: 350,
+              width: { xs: 250, md: 350 },
               maxWidth: "100%",
             }}
           >
             <form>
-              <Typography variant="h4" sx={{ ml: 12 }} color="white">
+              <Typography
+                variant="h4"
+                sx={{ ml: { xs: 3, md: 12 } }}
+                color="white"
+              >
                 Login
               </Typography>
               <TextField
                 fullWidth
-                sx={{ bgcolor: "#D2D2D2", mt: 2, ml: 12 }}
+                sx={{ bgcolor: "#D2D2D2", mt: 2, ml: { xs: 3, md: 12 } }}
                 label="Username"
-                id="fullWidth"
+                name="username"
+                size="small"
               />
               <TextField
                 fullWidth
-                sx={{ bgcolor: "#D2D2D2", mt: 2, ml: 12 }}
+                sx={{ bgcolor: "#D2D2D2", mt: 2, ml: { xs: 3, md: 12 } }}
                 label="Password"
-                id="fullWidth"
+                name="password"
+                size="small"
               />
               <Button
-                sx={{ ml: 12, mt: 3, pl: 19, pr: 19 }}
+                sx={{
+                  ml: { xs: 3, md: 12 },
+                  mt: 3,
+                  mb: 5,
+                  pl: { xs: 13, md: 19 },
+                  pr: { xs: 13, md: 19 },
+                }}
                 variant="contained"
                 color="error"
               >

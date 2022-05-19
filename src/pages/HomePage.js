@@ -4,14 +4,25 @@ import React from "react";
 import ResponsiveAppBar from "../component/Appbar";
 import Home from "../component/Home/Home";
 import ModalLogin from "../component/Home/ModalLogin";
+import ModalRegister from "../component/Home/ModalRegister";
 
 export function HomePage() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [open, setOpen] = React.useState(false);
-
   const pages = ["Login", "Register"];
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+
+  const [openLogin, setOpenLogin] = React.useState(false);
+  const handleOpenLogin = () => setOpenLogin(true);
+  const handleCloseLogin = () => setOpenLogin(false);
+
+  const [openRegister, setOpenRegister] = React.useState(false);
+  const handleOpenRegister = () => setOpenRegister(true);
+  const handleCloseRegister = () => setOpenRegister(false);
+
+  const [gender, setGender] = React.useState("male");
+
+  const handleSelect = (event) => {
+    setGender(event.target.value);
+  };
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -30,8 +41,22 @@ export function HomePage() {
         }}
       >
         <ResponsiveAppBar
-          ModalLogin={<ModalLogin open={open} handleClose={handleClose} />}
-          handleOpen={handleOpen}
+          ModalRegister={
+            <ModalRegister
+              openRegister={openRegister}
+              handleSelect={handleSelect}
+              gender={gender}
+              handleCloseRegister={handleCloseRegister}
+            />
+          }
+          ModalLogin={
+            <ModalLogin
+              openLogin={openLogin}
+              handleCloseLogin={handleCloseLogin}
+            />
+          }
+          handleOpenLogin={handleOpenLogin}
+          handleOpenRegister={handleOpenRegister}
           pages={pages}
           anchorElNav={anchorElNav}
           setAnchorElNav={setAnchorElNav}
