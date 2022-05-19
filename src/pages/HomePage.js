@@ -1,12 +1,12 @@
 import React from "react";
 // import { useSelector, useDispatch } from "react-redux";
 // import { selectUser } from "../redux/userSlice";
-import ResponsiveAppBar from "../component/Appbar";
+import AppbarHome from "../component/Home/AppbarHome";
 import Home from "../component/Home/Home";
 import ModalLogin from "../component/Home/ModalLogin";
 import ModalRegister from "../component/Home/ModalRegister";
 
-export function HomePage() {
+export default function HomePage() {
   const pages = ["Login", "Register"];
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
@@ -43,7 +43,7 @@ export function HomePage() {
           height: 612,
         }}
       >
-        <ResponsiveAppBar
+        <AppbarHome
           ModalRegister={
             <ModalRegister
               openRegister={openRegister}

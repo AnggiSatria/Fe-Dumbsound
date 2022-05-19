@@ -11,7 +11,7 @@ export default function ModalLogin({ openLogin, handleCloseLogin }) {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: { xs: 350, md: 600 },
+    width: { xs: 350, md: 510 },
     bgcolor: "#161616",
     border: "2px solid #000",
     boxShadow: 24,
@@ -36,28 +36,28 @@ export default function ModalLogin({ openLogin, handleCloseLogin }) {
             <form>
               <Typography
                 variant="h4"
-                sx={{ ml: { xs: 3, md: 12 } }}
+                sx={{ ml: { xs: 3, md: 6 } }}
                 color="white"
               >
                 Login
               </Typography>
               <TextField
                 fullWidth
-                sx={{ bgcolor: "#D2D2D2", mt: 2, ml: { xs: 3, md: 12 } }}
+                sx={{ bgcolor: "#D2D2D2", mt: 2, ml: { xs: 3, md: 6 } }}
                 label="Username"
                 name="username"
                 size="small"
               />
               <TextField
                 fullWidth
-                sx={{ bgcolor: "#D2D2D2", mt: 2, ml: { xs: 3, md: 12 } }}
+                sx={{ bgcolor: "#D2D2D2", mt: 2, ml: { xs: 3, md: 6 } }}
                 label="Password"
                 name="password"
                 size="small"
               />
               <Button
                 sx={{
-                  ml: { xs: 3, md: 12 },
+                  ml: { xs: 3, md: 6 },
                   mt: 3,
                   mb: 5,
                   pl: { xs: 13, md: 19 },

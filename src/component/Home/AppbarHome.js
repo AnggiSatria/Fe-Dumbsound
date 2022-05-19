@@ -11,7 +11,7 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
-export default function HideAppBar({
+export default function AppbarHome({
   pages,
   anchorElNav,
   handleOpenNavMenu,
@@ -31,12 +31,12 @@ export default function HideAppBar({
             <Box sx={{ flexGrow: 1, mt: 1 }}>
               <img
                 style={{ marginRight: 10 }}
-                src={require("../assets/logo.png")}
+                src={require("../../assets/logo.png")}
                 alt="..."
               />
               <img
                 style={{ marginBottom: 5 }}
-                src={require("../assets/text.png")}
+                src={require("../../assets/text.png")}
                 alt="..."
               />
             </Box>
@@ -107,12 +107,12 @@ export default function HideAppBar({
           <Box sx={{ flexGrow: 1, mt: 1, display: { xs: "flex", md: "none" } }}>
             <img
               style={{ marginRight: 10 }}
-              src={require("../assets/logo.png")}
+              src={require("../../assets/logo.png")}
               alt="..."
             />
             <img
-              style={{ marginBottom: 3 }}
-              src={require("../assets/text.png")}
+              style={{ marginBottom: 5 }}
+              src={require("../../assets/text.png")}
               alt="..."
             />
           </Box>
