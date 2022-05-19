@@ -1,6 +1,5 @@
 import React from "react";
 import AppbarUser from "../component/User/AppbarUser";
-import Cards from "../component/User/Card";
 import Home from "../component/User/Home";
 
 export default function UserPage() {
