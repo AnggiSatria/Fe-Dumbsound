@@ -1,6 +1,6 @@
 import React from "react";
 // import { useSelector, useDispatch } from "react-redux";
-// import { selectUser, LOGIN_SUCCESS } from "../redux/userSlice";
+// import { selectUser } from "../redux/userSlice";
 import ResponsiveAppBar from "../component/Appbar";
 import Home from "../component/Home/Home";
 import ModalLogin from "../component/Home/ModalLogin";
@@ -31,6 +31,9 @@ export function HomePage() {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
+
+  // const user = useSelector(selectUser);
+  // console.log(user);
 
   return (
     <div style={{ backgroundColor: "black" }}>
