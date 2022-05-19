@@ -1,6 +1,7 @@
 import React from "react";
 import HomePage from "./pages/HomePage";
 import UserPage from "./pages/UserPage";
+import AdminPage from "./pages/AdminPage";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/user" element={<UserPage />} />
+        <Route path="/admin" element={<AdminPage />} />
       </Routes>
     </BrowserRouter>
   );

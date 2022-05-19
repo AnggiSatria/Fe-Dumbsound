@@ -1,3 +1,4 @@
+import Box from "@mui/material/Box";
 import React from "react";
 // import { useSelector, useDispatch } from "react-redux";
 // import { selectUser } from "../redux/userSlice";
@@ -36,8 +37,8 @@ export default function HomePage() {
   // console.log(user);
 
   return (
-    <div style={{ backgroundColor: "black" }}>
-      <div
+    <Box style={{ backgroundColor: "black" }}>
+      <Box
         style={{
           backgroundImage: `url(${require("../assets/img/bgheader.png")})`,
           height: 612,
@@ -66,10 +67,10 @@ export default function HomePage() {
           handleOpenNavMenu={handleOpenNavMenu}
           handleCloseNavMenu={handleCloseNavMenu}
         />
-      </div>
-      <div>
+      </Box>
+      <Box>
         <Home />
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 }

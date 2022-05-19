@@ -51,6 +51,15 @@ export default function AppbarUser({
           </Box>
           {/* Menu */}
           <Menu
+            sx={{
+              "& .MuiPaper-root": {
+                backgroundColor: "#3A3A3A",
+              },
+              "& .MuiTypography-root": {
+                color: "white",
+              },
+              color: "white",
+            }}
             id="menu-appbar"
             anchorEl={anchorElNav}
             anchorOrigin={{
