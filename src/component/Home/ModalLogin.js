@@ -43,14 +43,53 @@ export default function ModalLogin({ openLogin, handleCloseLogin }) {
               </Typography>
               <TextField
                 fullWidth
-                sx={{ bgcolor: "#D2D2D2", mt: 2, ml: { xs: 3, md: 6 } }}
+                sx={{
+                  bgcolor: "#D2D2D2",
+                  mt: 2,
+                  ml: { xs: 3, md: 6 },
+                  "& .Mui-focused": { color: "white" },
+                  "& .MuiInput-underline:after": {
+                    borderBottomColor: "black",
+                  },
+                  "& .MuiOutlinedInput-root": {
+                    "& fieldset": {
+                      borderColor: "black",
+                    },
+                    "&:hover fieldset": {
+                      borderColor: "black",
+                    },
+                    "&.Mui-focused fieldset": {
+                      borderColor: "black",
+                    },
+                  },
+                }}
                 label="Username"
                 name="username"
                 size="small"
               />
               <TextField
                 fullWidth
-                sx={{ bgcolor: "#D2D2D2", mt: 2, ml: { xs: 3, md: 6 } }}
+                sx={{
+                  bgcolor: "#D2D2D2",
+                  mt: 2,
+                  ml: { xs: 3, md: 6 },
+                  "& .Mui-focused": { color: "white" },
+                  "& .Mui-focused": { color: "white" },
+                  "& .MuiInput-underline:after": {
+                    borderBottomColor: "black",
+                  },
+                  "& .MuiOutlinedInput-root": {
+                    "& fieldset": {
+                      borderColor: "black",
+                    },
+                    "&:hover fieldset": {
+                      borderColor: "black",
+                    },
+                    "&.Mui-focused fieldset": {
+                      borderColor: "black",
+                    },
+                  },
+                }}
                 label="Password"
                 name="password"
                 size="small"

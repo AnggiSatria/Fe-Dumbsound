@@ -56,14 +56,52 @@ export default function ModalRegister({
               <TextField
                 fullWidth
                 size="small"
-                sx={{ bgcolor: "#D2D2D2", mt: 2, ml: { xs: 3, md: 12 } }}
+                sx={{
+                  bgcolor: "#D2D2D2",
+                  mt: 2,
+                  ml: { xs: 3, md: 12 },
+                  "& .Mui-focused": { color: "white" },
+                  "& .MuiInput-underline:after": {
+                    borderBottomColor: "black",
+                  },
+                  "& .MuiOutlinedInput-root": {
+                    "& fieldset": {
+                      borderColor: "black",
+                    },
+                    "&:hover fieldset": {
+                      borderColor: "black",
+                    },
+                    "&.Mui-focused fieldset": {
+                      borderColor: "black",
+                    },
+                  },
+                }}
                 label="Email"
                 name="email"
               />
               <TextField
                 fullWidth
                 size="small"
-                sx={{ bgcolor: "#D2D2D2", mt: 2, ml: { xs: 3, md: 12 } }}
+                sx={{
+                  bgcolor: "#D2D2D2",
+                  mt: 2,
+                  ml: { xs: 3, md: 12 },
+                  "& .Mui-focused": { color: "white" },
+                  "& .MuiInput-underline:after": {
+                    borderBottomColor: "black",
+                  },
+                  "& .MuiOutlinedInput-root": {
+                    "& fieldset": {
+                      borderColor: "black",
+                    },
+                    "&:hover fieldset": {
+                      borderColor: "black",
+                    },
+                    "&.Mui-focused fieldset": {
+                      borderColor: "black",
+                    },
+                  },
+                }}
                 label="Password"
                 type="password"
                 name="password"
@@ -71,14 +109,52 @@ export default function ModalRegister({
               <TextField
                 fullWidth
                 size="small"
-                sx={{ bgcolor: "#D2D2D2", mt: 2, ml: { xs: 3, md: 12 } }}
+                sx={{
+                  bgcolor: "#D2D2D2",
+                  mt: 2,
+                  ml: { xs: 3, md: 12 },
+                  "& .Mui-focused": { color: "white" },
+                  "& .MuiInput-underline:after": {
+                    borderBottomColor: "black",
+                  },
+                  "& .MuiOutlinedInput-root": {
+                    "& fieldset": {
+                      borderColor: "black",
+                    },
+                    "&:hover fieldset": {
+                      borderColor: "black",
+                    },
+                    "&.Mui-focused fieldset": {
+                      borderColor: "black",
+                    },
+                  },
+                }}
                 label="Fullname"
                 name="fullname"
               />
               <Select
                 fullWidth
                 size="small"
-                sx={{ bgcolor: "#D2D2D2", mt: 2, ml: { xs: 3, md: 12 } }}
+                sx={{
+                  bgcolor: "#D2D2D2",
+                  mt: 2,
+                  ml: { xs: 3, md: 12 },
+                  "& .Mui-focused": { color: "white" },
+                  "& .MuiInput-underline:after": {
+                    borderBottomColor: "black",
+                  },
+                  "& .MuiOutlinedInput-root": {
+                    "& fieldset": {
+                      borderColor: "black",
+                    },
+                    "&:hover fieldset": {
+                      borderColor: "black",
+                    },
+                    "&.Mui-focused fieldset": {
+                      borderColor: "black",
+                    },
+                  },
+                }}
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 value={gender}
@@ -90,7 +166,26 @@ export default function ModalRegister({
               </Select>
               <TextField
                 fullWidth
-                sx={{ bgcolor: "#D2D2D2", mt: 2, ml: { xs: 3, md: 12 } }}
+                sx={{
+                  bgcolor: "#D2D2D2",
+                  mt: 2,
+                  ml: { xs: 3, md: 12 },
+                  "& .Mui-focused": { color: "white" },
+                  "& .MuiInput-underline:after": {
+                    borderBottomColor: "black",
+                  },
+                  "& .MuiOutlinedInput-root": {
+                    "& fieldset": {
+                      borderColor: "black",
+                    },
+                    "&:hover fieldset": {
+                      borderColor: "black",
+                    },
+                    "&.Mui-focused fieldset": {
+                      borderColor: "black",
+                    },
+                  },
+                }}
                 label="Phone"
                 size="small"
                 type="number"
@@ -98,7 +193,26 @@ export default function ModalRegister({
               />
               <TextField
                 fullWidth
-                sx={{ bgcolor: "#D2D2D2", mt: 2, ml: { xs: 3, md: 12 } }}
+                sx={{
+                  bgcolor: "#D2D2D2",
+                  mt: 2,
+                  ml: { xs: 3, md: 12 },
+                  "& .Mui-focused": { color: "white" },
+                  "& .MuiInput-underline:after": {
+                    borderBottomColor: "black",
+                  },
+                  "& .MuiOutlinedInput-root": {
+                    "& fieldset": {
+                      borderColor: "black",
+                    },
+                    "&:hover fieldset": {
+                      borderColor: "black",
+                    },
+                    "&.Mui-focused fieldset": {
+                      borderColor: "black",
+                    },
+                  },
+                }}
                 label="Address"
                 id="fullWidth"
               />
