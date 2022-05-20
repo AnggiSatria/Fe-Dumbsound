@@ -5,15 +5,9 @@ import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
-import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 
-export default function TableAdmin({
-  page,
-  handleChangePage,
-  handleChangeRowsPerPage,
-  columns,
-}) {
+export default function TableAdmin({ columns }) {
   return (
     <Paper sx={{ width: "100%" }}>
       <TableContainer sx={{ maxHeight: 440 }}>
@@ -80,19 +74,6 @@ export default function TableAdmin({
           </TableBody>
         </Table>
       </TableContainer>
-      <TablePagination
-        sx={{
-          "& .MuiToolbar-root": { bgcolor: "#2B2B2B", color: "white" },
-          "& .MuiSelect-icon": { color: "white" },
-        }}
-        rowsPerPageOptions={[10, 25, 100]}
-        component="div"
-        count={10}
-        rowsPerPage={10}
-        page={page}
-        onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
-      />
     </Paper>
   );
 }

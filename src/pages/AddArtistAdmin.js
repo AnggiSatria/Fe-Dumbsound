@@ -1,9 +1,10 @@
 import React from "react";
 import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 import AppbarAdmin from "../component/Admin/AppbarAdmin";
-import TableAdmin from "../component/Admin/TableAdmin";
+import FormAddArtist from "../component/Admin/FormAddArtist";
 
-export default function AdminPage() {
+export default function AddArtistAdmin() {
   document.body.style.backgroundColor = "black";
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const pages = ["Add Music", "Add Artist", "Logout"];
@@ -16,19 +17,6 @@ export default function AdminPage() {
     setAnchorElNav(null);
   };
 
-  const columns = [
-    { id: "no", label: "No", minWidth: 170, align: "left" },
-    { id: "users", label: "Users", minWidth: 170, align: "left" },
-    { id: "remaining", label: "Remaining Day", minWidth: 170, align: "left" },
-    { id: "statususers", label: "Status Users", minWidth: 170, align: "left" },
-    {
-      id: "statuspayment",
-      label: "Status Payment",
-      minWidth: 170,
-      align: "left",
-    },
-  ];
-
   return (
     <Box>
       <AppbarAdmin
@@ -39,14 +27,16 @@ export default function AdminPage() {
       />
       <Box
         sx={{
-          mr: { xs: 3, md: 20 },
-          ml: { xs: 3, md: 20 },
           display: "flex",
           alignItems: "center",
+          flexDirection: "column",
           mt: 10,
         }}
       >
-        <TableAdmin columns={columns} />
+        <Typography sx={{ mb: 4, ml: -60 }} variant="h6" color="white">
+          Add Artist
+        </Typography>
+        <FormAddArtist />
       </Box>
     </Box>
   );
