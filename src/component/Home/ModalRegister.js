@@ -61,7 +61,7 @@ export default function ModalRegister({
                 sx={{
                   bgcolor: "#D2D2D2",
                   mt: 2,
-                  ml: { xs: 3, md: 12 },
+                  ml: { md: 12 },
                   "& .Mui-focused": { color: "white" },
                   "& .MuiInput-underline:after": {
                     borderBottomColor: "black",
@@ -87,7 +87,7 @@ export default function ModalRegister({
                 sx={{
                   bgcolor: "#D2D2D2",
                   mt: 2,
-                  ml: { xs: 3, md: 12 },
+                  ml: { md: 12 },
                   "& .Mui-focused": { color: "white" },
                   "& .MuiInput-underline:after": {
                     borderBottomColor: "black",
@@ -114,7 +114,7 @@ export default function ModalRegister({
                 sx={{
                   bgcolor: "#D2D2D2",
                   mt: 2,
-                  ml: { xs: 3, md: 12 },
+                  ml: { md: 12 },
                   "& .Mui-focused": { color: "white" },
                   "& .MuiInput-underline:after": {
                     borderBottomColor: "black",
@@ -140,7 +140,7 @@ export default function ModalRegister({
                 sx={{
                   bgcolor: "#D2D2D2",
                   mt: 2,
-                  ml: { xs: 3, md: 12 },
+                  ml: { md: 12 },
                   "& .Mui-focused": { color: "white" },
                   "& .MuiInput-underline:after": {
                     borderBottomColor: "black",
@@ -171,7 +171,7 @@ export default function ModalRegister({
                 sx={{
                   bgcolor: "#D2D2D2",
                   mt: 2,
-                  ml: { xs: 3, md: 12 },
+                  ml: { md: 12 },
                   "& .Mui-focused": { color: "white" },
                   "& .MuiInput-underline:after": {
                     borderBottomColor: "black",
@@ -198,7 +198,7 @@ export default function ModalRegister({
                 sx={{
                   bgcolor: "#D2D2D2",
                   mt: 2,
-                  ml: { xs: 3, md: 12 },
+                  ml: { md: 12 },
                   "& .Mui-focused": { color: "white" },
                   "& .MuiInput-underline:after": {
                     borderBottomColor: "black",
@@ -220,11 +220,11 @@ export default function ModalRegister({
               />
               <Button
                 sx={{
-                  ml: { xs: 3, md: 12 },
+                  ml: { md: 12 },
                   mt: 3,
                   mb: 5,
-                  pl: { xs: 10, md: 19 },
-                  pr: { xs: 10, md: 19 },
+                  pl: { xs: 12, md: 19 },
+                  pr: { xs: 12, md: 19 },
                 }}
                 variant="contained"
                 color="error"
