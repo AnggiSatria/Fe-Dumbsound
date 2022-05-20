@@ -17,6 +17,7 @@ export default function AppbarUser({
   handleCloseNavMenu,
   pages,
   anchorElNav,
+  isPayment,
 }) {
   return (
     <React.Fragment>
@@ -204,27 +205,31 @@ export default function AppbarUser({
         </Toolbar>
       </AppBar>
       <Toolbar />
-      <Container>
-        <Typography
-          variant="h4"
-          style={{ marginTop: 110 }}
-          component="h4"
-          align="center"
-          color="white"
-        >
-          Connect on DumbSound
-        </Typography>
-        <Typography
-          variant="h6"
-          style={{ marginTop: 30 }}
-          component="h6"
-          align="center"
-          color="white"
-        >
-          Discovery, Stream, and share a constantly expanding mix of music from
-          emerging and major artists around the world
-        </Typography>
-      </Container>
+      {isPayment ? (
+        ""
+      ) : (
+        <Container>
+          <Typography
+            variant="h4"
+            style={{ marginTop: 110 }}
+            component="h4"
+            align="center"
+            color="white"
+          >
+            Connect on DumbSound
+          </Typography>
+          <Typography
+            variant="h6"
+            style={{ marginTop: 30 }}
+            component="h6"
+            align="center"
+            color="white"
+          >
+            Discovery, Stream, and share a constantly expanding mix of music
+            from emerging and major artists around the world
+          </Typography>
+        </Container>
+      )}
     </React.Fragment>
   );
 }

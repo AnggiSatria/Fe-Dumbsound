@@ -22,6 +22,41 @@ export default function FormAddMusic() {
               label="Title"
             />
           </Box>
+          <Box>
+            <label htmlFor="contained-button-file">
+              <Input
+                accept="image/*"
+                id="contained-button-file"
+                multiple
+                type="file"
+              />
+              <Button
+                component="span"
+                sx={{
+                  borderColor: "black",
+                  bgcolor: "gray",
+                  paddingTop: 1,
+                  paddingBotton: 1,
+                }}
+                variant="outlined"
+                endIcon={<AttachFileIcon sx={{ color: "red" }} />}
+              >
+                <Typography variant="body1" color="white">
+                  Attach Thumbnail
+                </Typography>
+              </Button>
+            </label>
+          </Box>
+        </Box>
+        <Box>
+          <TextField
+            size="small"
+            fullWidth
+            sx={{ bgcolor: "gray" }}
+            label="Year"
+          />
+        </Box>
+        <Box sx={{ display: "flex", flexDirection: "column" }}>
           <label htmlFor="contained-button-file">
             <Input
               accept="image/*"
@@ -35,46 +70,32 @@ export default function FormAddMusic() {
                 borderColor: "black",
                 bgcolor: "gray",
                 paddingTop: 1,
-                paddingBotton: 1,
+                mt: 2,
               }}
               variant="outlined"
               endIcon={<AttachFileIcon sx={{ color: "red" }} />}
             >
               <Typography variant="body1" color="white">
-                Attach Thumbnail
+                Attach
               </Typography>
             </Button>
           </label>
-        </Box>
-        <TextField
-          size="small"
-          fullWidth
-          sx={{ bgcolor: "gray" }}
-          label="Year"
-        />
-        <label htmlFor="contained-button-file">
-          <Input
-            accept="image/*"
-            id="contained-button-file"
-            multiple
-            type="file"
-          />
           <Button
-            component="span"
             sx={{
               borderColor: "black",
-              bgcolor: "gray",
+              bgcolor: "#F58033",
               paddingTop: 1,
+              ml: 25,
+              mr: 25,
               mt: 2,
             }}
-            variant="outlined"
-            endIcon={<AttachFileIcon sx={{ color: "red" }} />}
+            variant="contained"
           >
             <Typography variant="body1" color="white">
-              Attach
+              Add Song
             </Typography>
           </Button>
-        </label>
+        </Box>
       </form>
     </Box>
   );

@@ -24,6 +24,7 @@ export default function UserPage() {
         }}
       >
         <AppbarUser
+          isPayment={false}
           pages={pages}
           anchorElNav={anchorElNav}
           handleOpenNavMenu={handleOpenNavMenu}

@@ -20,6 +20,7 @@ export default function AddArtistAdmin() {
   return (
     <Box>
       <AppbarAdmin
+        isPayment={true}
         pages={pages}
         anchorElNav={anchorElNav}
         handleOpenNavMenu={handleOpenNavMenu}
@@ -33,7 +34,7 @@ export default function AddArtistAdmin() {
           mt: 10,
         }}
       >
-        <Typography sx={{ mb: 4, ml: -60 }} variant="h6" color="white">
+        <Typography sx={{ mb: 4, ml: -65 }} variant="h6" color="white">
           Add Artist
         </Typography>
         <FormAddArtist />
