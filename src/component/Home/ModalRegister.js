@@ -24,9 +24,7 @@ export default function ModalRegister({
     border: "2px solid #000",
     boxShadow: 24,
     overflowY: "scroll",
-    scrollbarWidth: "none",
     p: 4,
-    MsOverflowStyle: "none",
     display: "block",
     borderRadius: 2,
     "&::-webkit-scrollbar": {
