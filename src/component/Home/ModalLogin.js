@@ -5,7 +5,11 @@ import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
-export default function ModalLogin({ openLogin, handleCloseLogin }) {
+export default function ModalLogin({
+  openLogin,
+  handleCloseLogin,
+  handleLoginSubmit,
+}) {
   const style = {
     position: "absolute",
     top: "50%",
@@ -33,7 +37,7 @@ export default function ModalLogin({ openLogin, handleCloseLogin }) {
               maxWidth: "100%",
             }}
           >
-            <form>
+            <form onSubmit={handleLoginSubmit}>
               <Typography
                 variant="h4"
                 sx={{ ml: { xs: 3, md: 6 } }}
@@ -63,8 +67,8 @@ export default function ModalLogin({ openLogin, handleCloseLogin }) {
                     },
                   },
                 }}
-                label="Username"
-                name="username"
+                label="Email"
+                name="email"
                 size="small"
               />
               <TextField
@@ -93,6 +97,7 @@ export default function ModalLogin({ openLogin, handleCloseLogin }) {
                 label="Password"
                 name="password"
                 size="small"
+                type="password"
               />
               <Button
                 sx={{
@@ -104,6 +109,7 @@ export default function ModalLogin({ openLogin, handleCloseLogin }) {
                 }}
                 variant="contained"
                 color="error"
+                type="submit"
               >
                 Login
               </Button>

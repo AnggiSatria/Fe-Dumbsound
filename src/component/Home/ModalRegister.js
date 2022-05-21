@@ -12,6 +12,7 @@ export default function ModalRegister({
   handleCloseRegister,
   handleSelect,
   gender,
+  handleRegisterSubmit,
 }) {
   const style = {
     position: "absolute",
@@ -47,7 +48,7 @@ export default function ModalRegister({
               maxWidth: "100%",
             }}
           >
-            <form>
+            <form onSubmit={handleRegisterSubmit}>
               <Typography
                 variant="h4"
                 sx={{ ml: { xs: 3, md: 12 } }}
@@ -160,7 +161,8 @@ export default function ModalRegister({
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 value={gender}
-                label="Age"
+                name="gender"
+                label="Gender"
                 onChange={handleSelect}
               >
                 <MenuItem value={"male"}>Male</MenuItem>
@@ -189,6 +191,7 @@ export default function ModalRegister({
                   },
                 }}
                 label="Phone"
+                name="phone"
                 size="small"
                 type="number"
                 id="fullWidth"
@@ -215,10 +218,12 @@ export default function ModalRegister({
                     },
                   },
                 }}
+                name="address"
                 label="Address"
                 id="fullWidth"
               />
               <Button
+                type="submit"
                 sx={{
                   ml: { md: 12 },
                   mt: 3,
@@ -229,7 +234,7 @@ export default function ModalRegister({
                 variant="contained"
                 color="error"
               >
-                Login
+                Register
               </Button>
             </form>
           </Box>

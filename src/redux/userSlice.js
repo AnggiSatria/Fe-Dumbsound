@@ -11,8 +11,12 @@ export const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    LOGIN_SUCCESS: (state) => {
-      console.log(current(state));
+    LOGIN_SUCCESS: (state, action) => {
+      return {
+        ...state,
+        token: action.payload.token,
+        user: action.payload,
+      };
     },
     LOGOUT: (state) => {
       console.log(current(state));
