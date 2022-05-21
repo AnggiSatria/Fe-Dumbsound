@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import AppbarAdmin from "../component/Admin/AppbarAdmin";
 import FormAddArtist from "../component/Admin/FormAddArtist";
+import { API } from "../config/axios";
 
 export default function AddArtistAdmin() {
   document.body.style.backgroundColor = "black";
@@ -15,6 +16,27 @@ export default function AddArtistAdmin() {
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+  };
+
+  const HandleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const config = {
+        headers: {
+          "Content-type": "application/json",
+        },
+      };
+      const data = {
+        name: e.target.name.value,
+        old: e.target.old.value,
+        type: e.target.type.value,
+        startcareer: e.target.startcareer.value,
+      };
+      const response = await API.post("artist/add", data, config);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -37,7 +59,7 @@ export default function AddArtistAdmin() {
         <Typography sx={{ mb: 4, ml: -65 }} variant="h6" color="white">
           Add Artist
         </Typography>
-        <FormAddArtist />
+        <FormAddArtist HandleSubmit={HandleSubmit} />
       </Box>
     </Box>
   );

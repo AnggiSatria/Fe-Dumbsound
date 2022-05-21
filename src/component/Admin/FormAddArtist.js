@@ -4,35 +4,40 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
-export default function FormAddArtist() {
+export default function FormAddArtist({ HandleSubmit }) {
   return (
     <Box sx={{ width: 600 }}>
-      <form>
+      <form onSubmit={HandleSubmit}>
         <TextField
           size="small"
           fullWidth
           sx={{ bgcolor: "gray", mb: 2 }}
           label="Name"
+          name="name"
         />
         <TextField
           size="small"
           fullWidth
           sx={{ bgcolor: "gray", mb: 2 }}
           label="Old"
+          name="old"
         />
         <TextField
           size="small"
           fullWidth
           sx={{ bgcolor: "gray", mb: 2 }}
           label="Solo"
+          name="type"
         />
         <TextField
           size="small"
           fullWidth
           sx={{ bgcolor: "gray" }}
           label="Start Career"
+          name="startcareer"
         />
         <Button
+          type="submit"
           sx={{
             borderColor: "black",
             bgcolor: "#F58033",
