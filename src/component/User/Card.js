@@ -87,6 +87,73 @@ export default function Cards() {
                 </CardActions>
               </Card>
             </Grid>
+            <Grid item xs={6} md={3}>
+              <Card
+                sx={{
+                  maxWidth: 345,
+                  backgroundColor: "#3A3A3A",
+                  marginBottom: 10,
+                }}
+              >
+                <CardHeader
+                  avatar={
+                    <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+                      A
+                    </Avatar>
+                  }
+                  title={
+                    <Typography variant="body1" color="white">
+                      Airsupply
+                    </Typography>
+                  }
+                  subheader={
+                    <Typography variant="body1" color="white">
+                      Airsupply
+                    </Typography>
+                  }
+                />
+                <CardMedia
+                  style={{ padding: 10, borderRadius: 20 }}
+                  component="img"
+                  height="194"
+                  image={require("../../assets/img/bgheader.png")}
+                  alt="Paella dish"
+                />
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <Typography
+                    style={{ padding: 10 }}
+                    variant="h6"
+                    color="white"
+                  >
+                    Circles
+                  </Typography>
+                  <Typography
+                    style={{ padding: 10 }}
+                    variant="h6"
+                    color="white"
+                  >
+                    2019
+                  </Typography>
+                </Box>
+                <CardActions disableSpacing sx={{ mb: 2 }}>
+                  <IconButton
+                    sx={{ color: "red" }}
+                    aria-label="add to favorites"
+                  >
+                    <FavoriteIcon />
+                  </IconButton>
+                  <IconButton sx={{ color: "white" }} aria-label="share">
+                    <ShareIcon />
+                  </IconButton>
+                </CardActions>
+              </Card>
+            </Grid>
           </Grid>
         </Box>
       </Box>

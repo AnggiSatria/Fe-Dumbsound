@@ -194,7 +194,6 @@ export default function ModalRegister({
                 name="phone"
                 size="small"
                 type="number"
-                id="fullWidth"
               />
               <TextField
                 fullWidth
@@ -220,7 +219,6 @@ export default function ModalRegister({
                 }}
                 name="address"
                 label="Address"
-                id="fullWidth"
               />
               <Button
                 type="submit"

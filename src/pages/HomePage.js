@@ -1,14 +1,16 @@
 import Box from "@mui/material/Box";
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { selectUser, LOGIN_SUCCESS } from "../redux/userSlice";
+import { useDispatch } from "react-redux";
+import { LOGIN_SUCCESS } from "../redux/userSlice";
 import AppbarHome from "../component/Home/AppbarHome";
 import Home from "../component/Home/Home";
 import ModalLogin from "../component/Home/ModalLogin";
 import ModalRegister from "../component/Home/ModalRegister";
 import { API } from "../config/axios";
+import { useNavigate } from "react-router-dom";
 
 export default function HomePage() {
+  const navigate = useNavigate();
   const pages = ["Login", "Register"];
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
@@ -52,7 +54,11 @@ export default function HomePage() {
         address: e.target.address.value,
       };
       const response = await API.post("register", data, config);
-      console.log(response);
+      if (response.status === 201) {
+        localStorage.setItem("token", response.data.data.user.token);
+        dispatch(LOGIN_SUCCESS(response.data.data.user));
+        navigate("/user");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -71,7 +77,11 @@ export default function HomePage() {
         password: e.target.password.value,
       };
       const response = await API.post("login", data, config);
-      dispatch(LOGIN_SUCCESS(response.data.data.user));
+      if (response.status === 201) {
+        localStorage.setItem("token", response.data.data.user.token);
+        dispatch(LOGIN_SUCCESS(response.data.data.user));
+        navigate("/user");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -79,8 +89,7 @@ export default function HomePage() {
 
   const dispatch = useDispatch();
 
-  const user = useSelector(selectUser);
-  console.log(user);
+  // const user = useSelector(selectUser);
 
   return (
     <Box style={{ backgroundColor: "black" }}>

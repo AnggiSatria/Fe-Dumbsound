@@ -5,18 +5,37 @@ import AdminPage from "./pages/AdminPage";
 import AddMusicAdmin from "./pages/AddMusicAdmin";
 import AddArtistAdmin from "./pages/AddArtistAdmin";
 import UserPayment from "./pages/UserPayment";
+import PrivateRoute from "./component/PrivateRoute";
+
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { setAuthToken } from "./config/axios";
+import { useSelector } from "react-redux";
+import { selectUser } from "./redux/userSlice";
 
 function App() {
+  const user = useSelector(selectUser);
+
+  if (localStorage.token) {
+    setAuthToken(localStorage.token);
+  }
+
+  React.useEffect(() => {
+    if (localStorage.token) {
+      setAuthToken(localStorage.token);
+    }
+  }, [user]);
+
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/user" element={<UserPage />} />
-        <Route path="/user/payment" element={<UserPayment />} />
-        <Route path="/admin" element={<AdminPage />} />
-        <Route path="/admin/add/music" element={<AddMusicAdmin />} />
-        <Route path="/admin/add/artist" element={<AddArtistAdmin />} />
+        <Route element={<PrivateRoute />}>
+          <Route path="/user" element={<UserPage />} />
+          <Route path="/user/payment" element={<UserPayment />} />
+          <Route path="/admin" element={<AdminPage />} />
+          <Route path="/admin/add/music" element={<AddMusicAdmin />} />
+          <Route path="/admin/add/artist" element={<AddArtistAdmin />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
