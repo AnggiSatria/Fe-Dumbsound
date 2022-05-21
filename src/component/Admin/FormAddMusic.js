@@ -5,19 +5,63 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 import AttachFileIcon from "@mui/icons-material/AttachFile";
+import axios from "axios";
 
 export default function FormAddMusic() {
+  const [preview, setPreview] = React.useState(null);
+  const thumbnail = React.useRef(null);
+  const song = React.useRef(null);
+
   const Input = styled("input")({
     display: "none",
   });
+
+  const handleChangeThumbnail = (e) => {
+    if (e.target.type === "file") {
+      thumbnail.current = e.target.files[0];
+      let url = URL.createObjectURL(e.target.files[0]);
+      setPreview(url);
+    }
+  };
+
+  const handleChangeSong = (e) => {
+    if (e.target.type === "file") {
+      song.current = e.target.files[0];
+    }
+  };
+
+  const HandleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const config = {
+        headers: {
+          "Content-type": "multipart/form-data",
+        },
+      };
+      const formData = new FormData();
+      formData.set("thumbnail", thumbnail.current, thumbnail.current.name);
+      formData.set("song", song.current, song.current.name);
+
+      const response = await axios.post(
+        "http://localhost:5000/api/v1/music/add",
+        formData,
+        config
+      );
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <Box>
-      <form>
+      <form onSubmit={HandleSubmit}>
         <Box sx={{ display: "flex", flexDirection: "row", mb: 2 }}>
           <Box sx={{ width: 350, mr: 2 }}>
             <TextField
               fullWidth
               size="small"
+              name="title"
               sx={{ bgcolor: "gray" }}
               label="Title"
             />
@@ -26,8 +70,8 @@ export default function FormAddMusic() {
             <label htmlFor="contained-button-file">
               <Input
                 accept="image/*"
+                onChange={handleChangeThumbnail}
                 id="contained-button-file"
-                multiple
                 type="file"
               />
               <Button
@@ -54,14 +98,15 @@ export default function FormAddMusic() {
             fullWidth
             sx={{ bgcolor: "gray" }}
             label="Year"
+            name="year"
           />
         </Box>
         <Box sx={{ display: "flex", flexDirection: "column" }}>
-          <label htmlFor="contained-button-file">
+          <label htmlFor="contained-button-file1">
             <Input
               accept="image/*"
-              id="contained-button-file"
-              multiple
+              onChange={handleChangeSong}
+              id="contained-button-file1"
               type="file"
             />
             <Button
@@ -81,6 +126,7 @@ export default function FormAddMusic() {
             </Button>
           </label>
           <Button
+            type="submit"
             sx={{
               borderColor: "black",
               bgcolor: "#F58033",
