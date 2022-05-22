@@ -56,7 +56,6 @@ export default function FormAddArtist({
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={type}
-          name="gender"
           label="Gender"
           name="type"
           onChange={handleSelect}
