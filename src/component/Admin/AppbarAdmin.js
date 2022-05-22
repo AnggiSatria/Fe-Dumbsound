@@ -10,6 +10,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
 
 export default function AppbarAdmin({
   handleOpenNavMenu,
@@ -17,6 +18,13 @@ export default function AppbarAdmin({
   pages,
   anchorElNav,
 }) {
+  const navigate = useNavigate();
+
+  const Logout = () => {
+    localStorage.removeItem("token");
+    navigate("/");
+  };
+
   return (
     <React.Fragment>
       <CssBaseline />
@@ -80,7 +88,10 @@ export default function AppbarAdmin({
                 style={{ width: 220 }}
               >
                 {page === "Add Music" ? (
-                  <Box sx={{ display: "flex", flexDirection: "row" }}>
+                  <Box
+                    sx={{ display: "flex", flexDirection: "row" }}
+                    onClick={() => navigate("/admin/add/music")}
+                  >
                     <svg
                       width="30"
                       height="30"
@@ -106,7 +117,10 @@ export default function AppbarAdmin({
                     </Typography>
                   </Box>
                 ) : page === "Add Artist" ? (
-                  <Box sx={{ display: "flex", flexDirection: "row" }}>
+                  <Box
+                    sx={{ display: "flex", flexDirection: "row" }}
+                    onClick={() => navigate("/admin/add/artist")}
+                  >
                     <svg
                       width="28"
                       height="36"
@@ -136,7 +150,10 @@ export default function AppbarAdmin({
                     </Typography>
                   </Box>
                 ) : (
-                  <Box sx={{ display: "flex", flexDirection: "row" }}>
+                  <Box
+                    sx={{ display: "flex", flexDirection: "row" }}
+                    onClick={Logout}
+                  >
                     <svg
                       width="30"
                       height="30"

@@ -62,7 +62,6 @@ export default function FormAddMusic({
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <label htmlFor="contained-button-file1">
             <Input
-              accept="image/*"
               onChange={handleChangeSong}
               id="contained-button-file1"
               type="file"
