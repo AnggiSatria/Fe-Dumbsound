@@ -14,6 +14,7 @@ export default function AddArtistAdmin() {
     button: false,
     alert: false,
   });
+  const [type, setType] = React.useState("Rock");
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -21,6 +22,10 @@ export default function AddArtistAdmin() {
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+  };
+
+  const handleSelect = (event) => {
+    setType(event.target.value);
   };
 
   const HandleSubmit = async (e) => {
@@ -82,7 +87,12 @@ export default function AddArtistAdmin() {
         ) : (
           ""
         )}
-        <FormAddArtist loading={loading} HandleSubmit={HandleSubmit} />
+        <FormAddArtist
+          handleSelect={handleSelect}
+          loading={loading}
+          type={type}
+          HandleSubmit={HandleSubmit}
+        />
       </Box>
     </Box>
   );

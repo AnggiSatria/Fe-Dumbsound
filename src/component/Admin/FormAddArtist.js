@@ -5,8 +5,15 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import LoadingButton from "@mui/lab/LoadingButton";
 import SaveIcon from "@mui/icons-material/Save";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
 
-export default function FormAddArtist({ HandleSubmit, loading }) {
+export default function FormAddArtist({
+  HandleSubmit,
+  loading,
+  type,
+  handleSelect,
+}) {
   return (
     <Box sx={{ width: 600 }}>
       <form onSubmit={HandleSubmit}>
@@ -24,13 +31,40 @@ export default function FormAddArtist({ HandleSubmit, loading }) {
           label="Old"
           name="old"
         />
-        <TextField
-          size="small"
+        <Select
           fullWidth
-          sx={{ bgcolor: "gray", mb: 2 }}
-          label="Solo"
+          size="small"
+          sx={{
+            mb: 2,
+            bgcolor: "#D2D2D2",
+            "& .Mui-focused": { color: "white" },
+            "& .MuiInput-underline:after": {
+              borderBottomColor: "black",
+            },
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": {
+                borderColor: "black",
+              },
+              "&:hover fieldset": {
+                borderColor: "black",
+              },
+              "&.Mui-focused fieldset": {
+                borderColor: "black",
+              },
+            },
+          }}
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={type}
+          name="gender"
+          label="Gender"
           name="type"
-        />
+          onChange={handleSelect}
+        >
+          <MenuItem value={"Solo"}>Solo</MenuItem>
+          <MenuItem value={"Rock"}>Rock</MenuItem>
+          <MenuItem value={"Slow Rock"}>Slow Rock</MenuItem>
+        </Select>
         <TextField
           size="small"
           fullWidth
