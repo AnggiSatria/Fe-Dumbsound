@@ -4,11 +4,16 @@ import Typography from "@mui/material/Typography";
 import AppbarAdmin from "../component/Admin/AppbarAdmin";
 import FormAddArtist from "../component/Admin/FormAddArtist";
 import { API } from "../config/axios";
+import Alert from "@mui/material/Alert";
 
 export default function AddArtistAdmin() {
   document.body.style.backgroundColor = "black";
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
   const pages = ["Add Music", "Add Artist", "Logout"];
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [loading, setLoading] = React.useState({
+    button: false,
+    alert: false,
+  });
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -20,6 +25,10 @@ export default function AddArtistAdmin() {
 
   const HandleSubmit = async (e) => {
     e.preventDefault();
+    setLoading({
+      ...loading,
+      button: true,
+    });
     try {
       const config = {
         headers: {
@@ -33,7 +42,12 @@ export default function AddArtistAdmin() {
         startcareer: e.target.startcareer.value,
       };
       const response = await API.post("artist/add", data, config);
-      console.log(response);
+      if (response.status === 201) {
+        setLoading({
+          alert: true,
+          button: false,
+        });
+      }
     } catch (error) {
       console.log(error);
     }
@@ -59,7 +73,16 @@ export default function AddArtistAdmin() {
         <Typography sx={{ mb: 4, ml: -65 }} variant="h6" color="white">
           Add Artist
         </Typography>
-        <FormAddArtist HandleSubmit={HandleSubmit} />
+        {loading.alert ? (
+          <Box>
+            <Alert severity="success" sx={{ mb: 2, pl: 5, pr: 5 }}>
+              Data telah di tambahkan
+            </Alert>
+          </Box>
+        ) : (
+          ""
+        )}
+        <FormAddArtist loading={loading} HandleSubmit={HandleSubmit} />
       </Box>
     </Box>
   );

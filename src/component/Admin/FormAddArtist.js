@@ -3,8 +3,10 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import LoadingButton from "@mui/lab/LoadingButton";
+import SaveIcon from "@mui/icons-material/Save";
 
-export default function FormAddArtist({ HandleSubmit }) {
+export default function FormAddArtist({ HandleSubmit, loading }) {
   return (
     <Box sx={{ width: 600 }}>
       <form onSubmit={HandleSubmit}>
@@ -36,22 +38,43 @@ export default function FormAddArtist({ HandleSubmit }) {
           label="Start Career"
           name="startcareer"
         />
-        <Button
-          type="submit"
-          sx={{
-            borderColor: "black",
-            bgcolor: "#F58033",
-            paddingTop: 1,
-            ml: 25,
-            mr: 25,
-            mt: 2,
-          }}
-          variant="contained"
-        >
-          <Typography variant="body1" color="white">
-            Add Artist
-          </Typography>
-        </Button>
+        {loading.button ? (
+          <LoadingButton
+            sx={{
+              borderColor: "black",
+              bgcolor: "#F58033",
+              paddingTop: 1,
+              ml: 25,
+              mr: 25,
+              mt: 2,
+            }}
+            loading
+            loadingPosition="start"
+            startIcon={<SaveIcon />}
+            variant="outlined"
+          >
+            <Typography variant="body1" color="white">
+              Add Song
+            </Typography>
+          </LoadingButton>
+        ) : (
+          <Button
+            type="submit"
+            sx={{
+              borderColor: "black",
+              bgcolor: "#F58033",
+              paddingTop: 1,
+              ml: 25,
+              mr: 25,
+              mt: 2,
+            }}
+            variant="contained"
+          >
+            <Typography variant="body1" color="white">
+              Add Song
+            </Typography>
+          </Button>
+        )}
       </form>
     </Box>
   );

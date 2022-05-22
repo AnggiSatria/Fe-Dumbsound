@@ -4,15 +4,34 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import AttachFileIcon from "@mui/icons-material/AttachFile";
+import LoadingButton from "@mui/lab/LoadingButton";
+import SaveIcon from "@mui/icons-material/Save";
+import Alert from "@mui/material/Alert";
 
 export default function FormAddMusic({
   handleChangeThumbnail,
   handleChangeSong,
   HandleSubmit,
   Input,
+  loading,
+  preview,
 }) {
   return (
     <Box>
+      {loading.alert ? (
+        <Box>
+          <Alert severity="success" sx={{ mb: 2, pl: 5, pr: 5 }}>
+            Data telah di tambahkan
+          </Alert>
+        </Box>
+      ) : (
+        ""
+      )}
+      <img
+        style={{ maxWidth: 200, marginBottom: 10 }}
+        src={preview.image}
+        alt=""
+      />
       <form onSubmit={HandleSubmit}>
         <Box sx={{ display: "flex", flexDirection: "row", mb: 2 }}>
           <Box sx={{ width: 350, mr: 2 }}>
@@ -66,38 +85,70 @@ export default function FormAddMusic({
               id="contained-button-file1"
               type="file"
             />
-            <Button
-              component="span"
+            <Box sx={{ display: "flex", flexDirection: "row" }}>
+              <Button
+                component="span"
+                sx={{
+                  borderColor: "black",
+                  bgcolor: "gray",
+                  paddingTop: 1,
+                  mt: 2,
+                }}
+                variant="outlined"
+                endIcon={<AttachFileIcon sx={{ color: "red" }} />}
+              >
+                <Typography variant="body1" color="white">
+                  Attach
+                </Typography>
+              </Button>
+              {
+                <Typography
+                  sx={{ display: "flex", mt: 3, ml: 2 }}
+                  variant="body1"
+                  color="white"
+                >
+                  {preview.url}
+                </Typography>
+              }
+            </Box>
+          </label>
+          {loading.button ? (
+            <LoadingButton
               sx={{
                 borderColor: "black",
-                bgcolor: "gray",
+                bgcolor: "#F58033",
                 paddingTop: 1,
+                ml: 25,
+                mr: 25,
                 mt: 2,
               }}
+              loading
+              loadingPosition="start"
+              startIcon={<SaveIcon />}
               variant="outlined"
-              endIcon={<AttachFileIcon sx={{ color: "red" }} />}
             >
               <Typography variant="body1" color="white">
-                Attach
+                Add Song
+              </Typography>
+            </LoadingButton>
+          ) : (
+            <Button
+              type="submit"
+              sx={{
+                borderColor: "black",
+                bgcolor: "#F58033",
+                paddingTop: 1,
+                ml: 25,
+                mr: 25,
+                mt: 2,
+              }}
+              variant="contained"
+            >
+              <Typography variant="body1" color="white">
+                Add Song
               </Typography>
             </Button>
-          </label>
-          <Button
-            type="submit"
-            sx={{
-              borderColor: "black",
-              bgcolor: "#F58033",
-              paddingTop: 1,
-              ml: 25,
-              mr: 25,
-              mt: 2,
-            }}
-            variant="contained"
-          >
-            <Typography variant="body1" color="white">
-              Add Song
-            </Typography>
-          </Button>
+          )}
         </Box>
       </form>
     </Box>

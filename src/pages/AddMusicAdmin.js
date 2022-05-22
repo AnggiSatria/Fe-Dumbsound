@@ -8,9 +8,16 @@ import { API } from "../config/axios";
 
 export default function AddMusicAdmin() {
   document.body.style.backgroundColor = "black";
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
   const pages = ["Add Music", "Add Artist", "Logout"];
-  const [preview, setPreview] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [preview, setPreview] = React.useState({
+    image: "",
+    url: "",
+  });
+  const [loading, setLoading] = React.useState({
+    button: false,
+    alert: false,
+  });
   const thumbnail = React.useRef(null);
   const song = React.useRef(null);
 
@@ -30,18 +37,29 @@ export default function AddMusicAdmin() {
     if (e.target.type === "file") {
       thumbnail.current = e.target.files[0];
       let url = URL.createObjectURL(e.target.files[0]);
-      setPreview(url);
+      setPreview({
+        ...preview,
+        image: url,
+      });
     }
   };
 
   const handleChangeSong = (e) => {
     if (e.target.type === "file") {
       song.current = e.target.files[0];
+      setPreview({
+        ...preview,
+        url: e.target.files[0].name,
+      });
     }
   };
 
   const HandleSubmit = async (e) => {
     e.preventDefault();
+    setLoading({
+      ...loading,
+      button: true,
+    });
     try {
       const config = {
         headers: {
@@ -55,7 +73,12 @@ export default function AddMusicAdmin() {
       formData.set("thumbnail", thumbnail.current, thumbnail.current.name);
       formData.set("song", song.current, song.current.name);
       const response = await API.post("music/add", formData, config);
-      console.log(response);
+      if (response.status === 201) {
+        setLoading({
+          alert: true,
+          button: false,
+        });
+      }
     } catch (error) {
       console.log(error);
     }
@@ -77,10 +100,12 @@ export default function AddMusicAdmin() {
           mt: 10,
         }}
       >
-        <Typography sx={{ mb: 4, ml: -60 }} variant="h6" color="white">
+        <Typography sx={{ mb: 2, ml: -60 }} variant="h6" color="white">
           Add Music
         </Typography>
         <FormAddMusic
+          preview={preview}
+          loading={loading}
           handleChangeThumbnail={handleChangeThumbnail}
           handleChangeSong={handleChangeSong}
           HandleSubmit={HandleSubmit}
