@@ -1,13 +1,13 @@
 import Box from "@mui/material/Box";
 import React from "react";
+import { API } from "../config/axios";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { LOGIN_SUCCESS } from "../redux/userSlice";
 import AppbarHome from "../component/Home/AppbarHome";
 import Home from "../component/Home/Home";
 import ModalLogin from "../component/Home/ModalLogin";
 import ModalRegister from "../component/Home/ModalRegister";
-import { API } from "../config/axios";
-import { useNavigate } from "react-router-dom";
 
 export default function HomePage() {
   const navigate = useNavigate();

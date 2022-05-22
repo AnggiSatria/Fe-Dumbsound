@@ -18,6 +18,8 @@ export default function AddMusicAdmin() {
     button: false,
     alert: false,
   });
+  const [artist, setArtist] = React.useState([]);
+  const [artistValue, setartistValue] = React.useState("");
   const thumbnail = React.useRef(null);
   const song = React.useRef(null);
 
@@ -25,12 +27,31 @@ export default function AddMusicAdmin() {
     display: "none",
   });
 
+  React.useEffect(() => {
+    const getArtist = async () => {
+      try {
+        const response = await API.get("/artists");
+        setArtist(response.data.data.artists);
+        setartistValue(response.data.data.artists[0].id);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getArtist();
+  }, []);
+
+  console.log(artistValue);
+
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+  };
+
+  const handleSelect = (event) => {
+    setartistValue(event.target.value);
   };
 
   const handleChangeThumbnail = (e) => {
@@ -69,7 +90,7 @@ export default function AddMusicAdmin() {
       const formData = new FormData();
       formData.set("title", e.target.title.value);
       formData.set("year", e.target.year.value);
-      formData.set("artistId", 2);
+      formData.set("artistId", artistValue);
       formData.set("thumbnail", thumbnail.current, thumbnail.current.name);
       formData.set("song", song.current, song.current.name);
       const response = await API.post("music/add", formData, config);
@@ -104,6 +125,9 @@ export default function AddMusicAdmin() {
           Add Music
         </Typography>
         <FormAddMusic
+          handleSelect={handleSelect}
+          artist={artist}
+          artistValue={artistValue}
           preview={preview}
           loading={loading}
           handleChangeThumbnail={handleChangeThumbnail}

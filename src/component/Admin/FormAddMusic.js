@@ -7,6 +7,8 @@ import AttachFileIcon from "@mui/icons-material/AttachFile";
 import LoadingButton from "@mui/lab/LoadingButton";
 import SaveIcon from "@mui/icons-material/Save";
 import Alert from "@mui/material/Alert";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
 
 export default function FormAddMusic({
   handleChangeThumbnail,
@@ -15,6 +17,9 @@ export default function FormAddMusic({
   Input,
   loading,
   preview,
+  handleSelect,
+  artist,
+  artistValue,
 }) {
   return (
     <Box>
@@ -78,9 +83,48 @@ export default function FormAddMusic({
             name="year"
           />
         </Box>
+        <Box>
+          <Select
+            fullWidth
+            size="small"
+            sx={{
+              bgcolor: "#D2D2D2",
+              mt: 2,
+              "& .Mui-focused": { color: "white" },
+              "& .MuiInput-underline:after": {
+                borderBottomColor: "black",
+              },
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "black",
+                },
+                "&:hover fieldset": {
+                  borderColor: "black",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "black",
+                },
+              },
+            }}
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            label="Select Artist"
+            value={artistValue}
+            onChange={handleSelect}
+          >
+            {artist.map((value) => {
+              return (
+                <MenuItem key={value.id} value={value.id}>
+                  {value.name}
+                </MenuItem>
+              );
+            })}
+          </Select>
+        </Box>
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <label htmlFor="contained-button-file1">
             <Input
+              accept="audio/*"
               onChange={handleChangeSong}
               id="contained-button-file1"
               type="file"
