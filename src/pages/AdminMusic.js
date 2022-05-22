@@ -9,7 +9,12 @@ export default function AdminMusic() {
   document.body.style.backgroundColor = "black";
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [music, setMusic] = React.useState(null);
-
+  const [id, setId] = React.useState(0);
+  const columns = [
+    { id: "no", label: "No", minWidth: 30, align: "left" },
+    { id: "music", label: "Music", minWidth: 170, align: "left" },
+    { id: "Action", label: "Action", minWidth: 170, align: "left" },
+  ];
   const pages = ["Add Music", "Add Artist", "Logout"];
 
   const handleOpenNavMenu = (event) => {
@@ -20,12 +25,6 @@ export default function AdminMusic() {
     setAnchorElNav(null);
   };
 
-  const columns = [
-    { id: "no", label: "No", minWidth: 30, align: "left" },
-    { id: "music", label: "Music", minWidth: 170, align: "left" },
-    { id: "Action", label: "Action", minWidth: 170, align: "left" },
-  ];
-
   const navigate = useNavigate();
 
   const EditMusic = (id) => {
@@ -34,6 +33,17 @@ export default function AdminMusic() {
         id: id,
       },
     });
+  };
+
+  const DeleteMusic = async (id) => {
+    try {
+      const response = await API.delete("/music/" + id);
+      if (response.status === 201) {
+        setId(id);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   React.useEffect(() => {
@@ -46,7 +56,7 @@ export default function AdminMusic() {
       }
     };
     getMusic();
-  }, []);
+  }, [id]);
 
   return (
     <Box>
@@ -66,6 +76,7 @@ export default function AdminMusic() {
         }}
       >
         <TableMusicAdmin
+          DeleteMusic={DeleteMusic}
           music={music}
           EditMusic={EditMusic}
           columns={columns}

@@ -8,8 +8,14 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import "../../assets/css/main.css";
 
-export default function TableMusicAdmin({ columns, music, EditMusic }) {
+export default function TableMusicAdmin({
+  columns,
+  music,
+  EditMusic,
+  DeleteMusic,
+}) {
   return (
     <Paper sx={{ width: "100%" }}>
       <TableContainer sx={{ maxHeight: 440 }}>
@@ -36,7 +42,9 @@ export default function TableMusicAdmin({ columns, music, EditMusic }) {
                   key={value.id}
                   hover
                   role="checkbox"
-                  sx={{ "& .MuiTableCell-root": { bgcolor: "#3A3A3A" } }}
+                  className={`${
+                    value.id % 2 === 0 ? "tableatas" : "tablebawah"
+                  }`}
                   tabIndex={-1}
                 >
                   <TableCell align="left" sx={{ color: "white" }}>
@@ -62,6 +70,7 @@ export default function TableMusicAdmin({ columns, music, EditMusic }) {
                     </Button>
                     <Button
                       component="span"
+                      onClick={() => DeleteMusic(value.id)}
                       sx={{
                         borderColor: "black",
                         bgcolor: "red",
