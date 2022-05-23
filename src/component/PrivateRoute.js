@@ -15,13 +15,15 @@ const PrivateRoute = () => {
         const response = await API.get("/users");
         if (response.data.data.users.status === "admin") {
           navigate("/admin");
+        } else if (response.data.data.users.status === "user") {
+          navigate("/user");
         }
       } catch (error) {
         console.log(error);
       }
     };
     getUsers();
-  }, [user, navigate]);
+  }, [user]);
 
   let Getdatalogin = localStorage.getItem("token");
   let token = false;

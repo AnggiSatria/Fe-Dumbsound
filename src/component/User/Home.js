@@ -10,6 +10,7 @@ import Box from "@mui/material/Box";
 
 export default function Home() {
   const [music, setMusic] = React.useState(null);
+  const [status, setStatus] = React.useState(null);
   const [attache, setAttache] = React.useState({
     attache: "",
     title: "",
@@ -39,6 +40,15 @@ export default function Home() {
       }
     };
     getMusic();
+    const getUserStatus = async () => {
+      try {
+        const response = await API.get("/transactions/user");
+        setStatus(response.data.data.dataTransaction.status);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getUserStatus();
   }, []);
 
   return (
@@ -51,7 +61,7 @@ export default function Home() {
       >
         Dengarkan Dan Rasakan
       </Typography>
-      <Cards music={music} handleOpenMusic={handleOpenMusic} />
+      <Cards music={music} status={status} handleOpenMusic={handleOpenMusic} />
       <AppBar
         position="fixed"
         color="transparent"

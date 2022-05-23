@@ -90,7 +90,7 @@ export default function UserPayment() {
           display: "flex",
           alignItems: "center",
           flexDirection: "column",
-          mt: 2,
+          mt: 12,
         }}
       >
         <Typography variant="h3" sx={{ fontWeight: "bold" }} color="white">
@@ -104,7 +104,7 @@ export default function UserPayment() {
           Nikmati Layanan kami tanpa terbatas
         </Typography>
         <form onSubmit={HandleSubmit}>
-          <Box sx={{ width: 500 }}>
+          <Box sx={{ width: 550 }}>
             <Typography variant="body1" color="white">
               Pilih Paket
             </Typography>

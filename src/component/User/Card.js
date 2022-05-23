@@ -10,8 +10,10 @@ import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import { red } from "@mui/material/colors";
+import { useNavigate } from "react-router-dom";
 
-export default function Cards({ music, handleOpenMusic }) {
+export default function Cards({ music, handleOpenMusic, status }) {
+  const navigate = useNavigate();
   return (
     <div style={{ marginLeft: 10, marginRight: 10 }}>
       <Box
@@ -76,16 +78,29 @@ export default function Cards({ music, handleOpenMusic }) {
                       </Typography>
                     </Box>
                     <CardActions disableSpacing sx={{ mb: 2 }}>
-                      <IconButton
-                        sx={{ color: "white" }}
-                        aria-label="share"
-                        onClick={() => handleOpenMusic(value.id)}
-                      >
-                        <PlayCircleOutlineIcon />
-                        <Typography variant="h6" sx={{ ml: 1 }} color="white">
-                          Play
-                        </Typography>
-                      </IconButton>
+                      {status === "success" ? (
+                        <IconButton
+                          sx={{ color: "white" }}
+                          aria-label="share"
+                          onClick={() => handleOpenMusic(value.id)}
+                        >
+                          <PlayCircleOutlineIcon />
+                          <Typography variant="h6" sx={{ ml: 1 }} color="white">
+                            Play
+                          </Typography>
+                        </IconButton>
+                      ) : (
+                        <IconButton
+                          sx={{ color: "white" }}
+                          aria-label="share"
+                          onClick={() => navigate("/user/payment")}
+                        >
+                          <PlayCircleOutlineIcon />
+                          <Typography variant="h6" sx={{ ml: 1 }} color="white">
+                            Play
+                          </Typography>
+                        </IconButton>
+                      )}
                     </CardActions>
                   </Card>
                 </Grid>
