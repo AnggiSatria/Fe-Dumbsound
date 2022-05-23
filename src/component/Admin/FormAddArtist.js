@@ -87,7 +87,7 @@ export default function FormAddArtist({
             variant="outlined"
           >
             <Typography variant="body1" color="white">
-              Add Song
+              Add Artist
             </Typography>
           </LoadingButton>
         ) : (
@@ -104,7 +104,7 @@ export default function FormAddArtist({
             variant="contained"
           >
             <Typography variant="body1" color="white">
-              Add Song
+              Add Artist
             </Typography>
           </Button>
         )}

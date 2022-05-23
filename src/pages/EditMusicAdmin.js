@@ -58,7 +58,7 @@ export default function EditMusicAdmin() {
       }
     };
     getDetailMusic();
-  }, []);
+  }, [id]);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);

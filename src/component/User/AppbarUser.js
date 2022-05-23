@@ -11,6 +11,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Avatar from "@mui/material/Avatar";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
 
 export default function AppbarUser({
   handleOpenNavMenu,
@@ -19,6 +20,13 @@ export default function AppbarUser({
   anchorElNav,
   isPayment,
 }) {
+  const navigate = useNavigate();
+
+  const Logout = () => {
+    localStorage.removeItem("token");
+    navigate("/");
+  };
+
   return (
     <React.Fragment>
       <CssBaseline />
@@ -83,7 +91,10 @@ export default function AppbarUser({
               >
                 <Box sx={{ display: "flex", flexDirection: "row" }}>
                   {page === "Pay" ? (
-                    <Box sx={{ display: "flex", flexDirection: "row" }}>
+                    <Box
+                      sx={{ display: "flex", flexDirection: "row" }}
+                      onClick={() => navigate("/user/payment")}
+                    >
                       <svg
                         width="30"
                         height="30"
@@ -132,7 +143,10 @@ export default function AppbarUser({
                       </Typography>
                     </Box>
                   ) : (
-                    <Box sx={{ display: "flex", flexDirection: "row" }}>
+                    <Box
+                      sx={{ display: "flex", flexDirection: "row" }}
+                      onClick={Logout}
+                    >
                       <svg
                         width="30"
                         height="30"

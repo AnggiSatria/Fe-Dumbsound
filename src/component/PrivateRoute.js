@@ -21,7 +21,7 @@ const PrivateRoute = () => {
       }
     };
     getUsers();
-  }, [user]);
+  }, [user, navigate]);
 
   let Getdatalogin = localStorage.getItem("token");
   let token = false;

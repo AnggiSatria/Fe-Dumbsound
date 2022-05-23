@@ -40,8 +40,6 @@ export default function AddMusicAdmin() {
     getArtist();
   }, []);
 
-  console.log(artistValue);
-
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
