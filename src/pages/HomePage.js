@@ -13,6 +13,7 @@ export default function HomePage() {
   const navigate = useNavigate();
   const pages = ["Login", "Register"];
   const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [music, setMusic] = React.useState(null);
 
   const [openLogin, setOpenLogin] = React.useState(false);
   const handleOpenLogin = () => setOpenLogin(true);
@@ -87,9 +88,19 @@ export default function HomePage() {
     }
   };
 
-  const dispatch = useDispatch();
+  React.useEffect(() => {
+    const getMusic = async () => {
+      try {
+        const response = await API.get("/musics");
+        setMusic(response.data.data.musics);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getMusic();
+  }, []);
 
-  // const user = useSelector(selectUser);
+  const dispatch = useDispatch();
 
   return (
     <Box style={{ backgroundColor: "black" }}>
@@ -126,7 +137,7 @@ export default function HomePage() {
         />
       </Box>
       <Box>
-        <Home />
+        <Home music={music} setOpenLogin={setOpenLogin} />
       </Box>
     </Box>
   );

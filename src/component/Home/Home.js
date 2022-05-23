@@ -1,7 +1,8 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
 import Cards from "./Card";
-export default function Home() {
+
+export default function Home({ music, setOpenLogin }) {
   return (
     <div>
       <Typography
@@ -12,7 +13,7 @@ export default function Home() {
       >
         Dengarkan Dan Rasakan
       </Typography>
-      <Cards />
+      <Cards music={music} setOpenLogin={setOpenLogin} />
     </div>
   );
 }

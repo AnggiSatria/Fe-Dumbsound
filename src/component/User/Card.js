@@ -8,7 +8,6 @@ import CardMedia from "@mui/material/CardMedia";
 import CardActions from "@mui/material/CardActions";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
-import ShareIcon from "@mui/icons-material/Share";
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import { red } from "@mui/material/colors";
 
@@ -77,9 +76,6 @@ export default function Cards({ music, handleOpenMusic }) {
                       </Typography>
                     </Box>
                     <CardActions disableSpacing sx={{ mb: 2 }}>
-                      <IconButton sx={{ color: "white" }} aria-label="share">
-                        <ShareIcon />
-                      </IconButton>
                       <IconButton
                         sx={{ color: "white" }}
                         aria-label="share"

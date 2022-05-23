@@ -8,11 +8,11 @@ import CardMedia from "@mui/material/CardMedia";
 import CardActions from "@mui/material/CardActions";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
-import ShareIcon from "@mui/icons-material/Share";
-import FavoriteIcon from "@mui/icons-material/Favorite";
+import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import { red } from "@mui/material/colors";
 
-export default function Cards() {
+export default function Cards({ music, setOpenLogin }) {
+  // console.log(music);
   return (
     <div style={{ marginLeft: 10, marginRight: 10 }}>
       <Box
@@ -20,73 +20,78 @@ export default function Cards() {
       >
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={2}>
-            <Grid item xs={6} md={3}>
-              <Card
-                sx={{
-                  maxWidth: 345,
-                  backgroundColor: "#3A3A3A",
-                  marginBottom: 10,
-                }}
-              >
-                <CardHeader
-                  avatar={
-                    <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                      A
-                    </Avatar>
-                  }
-                  title={
-                    <Typography variant="body1" color="white">
-                      Airsupply
-                    </Typography>
-                  }
-                  subheader={
-                    <Typography variant="body1" color="white">
-                      Airsupply
-                    </Typography>
-                  }
-                />
-                <CardMedia
-                  style={{ padding: 10, borderRadius: 20 }}
-                  component="img"
-                  height="194"
-                  image={require("../../assets/img/bgheader.png")}
-                  alt="Paella dish"
-                />
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  <Typography
-                    style={{ padding: 10 }}
-                    variant="h6"
-                    color="white"
+            {music?.map((value) => {
+              return (
+                <Grid key={value.id} item xs={6} md={3}>
+                  <Card
+                    sx={{
+                      maxWidth: 345,
+                      backgroundColor: "#3A3A3A",
+                      marginBottom: 10,
+                    }}
                   >
-                    Circles
-                  </Typography>
-                  <Typography
-                    style={{ padding: 10 }}
-                    variant="h6"
-                    color="white"
-                  >
-                    2019
-                  </Typography>
-                </Box>
-                <CardActions disableSpacing sx={{ mb: 2 }}>
-                  <IconButton
-                    sx={{ color: "red" }}
-                    aria-label="add to favorites"
-                  >
-                    <FavoriteIcon />
-                  </IconButton>
-                  <IconButton sx={{ color: "white" }} aria-label="share">
-                    <ShareIcon />
-                  </IconButton>
-                </CardActions>
-              </Card>
-            </Grid>
+                    <CardHeader
+                      avatar={
+                        <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+                          A
+                        </Avatar>
+                      }
+                      title={
+                        <Typography variant="body1" color="white">
+                          {value.artists.name}
+                        </Typography>
+                      }
+                      subheader={
+                        <Typography variant="body1" color="white">
+                          {value.artists.type}
+                        </Typography>
+                      }
+                    />
+                    <CardMedia
+                      style={{ padding: 10, borderRadius: 20 }}
+                      component="img"
+                      height="194"
+                      src={value.thumbnail}
+                      alt="Paella dish"
+                    />
+                    <Box
+                      sx={{
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <Typography
+                        style={{ padding: 10 }}
+                        variant="h6"
+                        color="white"
+                      >
+                        {value.title.slice(0, 10) + " ..."}
+                      </Typography>
+                      <Typography
+                        style={{ padding: 10 }}
+                        variant="h6"
+                        color="white"
+                      >
+                        {value.year}
+                      </Typography>
+                    </Box>
+                    <CardActions disableSpacing sx={{ mb: 2 }}>
+                      <IconButton
+                        sx={{ color: "white" }}
+                        aria-label="share"
+                        onClick={setOpenLogin}
+                      >
+                        <PlayCircleOutlineIcon />
+                        <Typography variant="h6" sx={{ ml: 1 }} color="white">
+                          Play
+                        </Typography>
+                      </IconButton>
+                    </CardActions>
+                  </Card>
+                </Grid>
+              );
+            })}
           </Grid>
         </Box>
       </Box>
