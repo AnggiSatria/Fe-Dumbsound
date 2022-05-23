@@ -29,9 +29,7 @@ export default function FormAddMusic({
             Data telah di tambahkan
           </Alert>
         </Box>
-      ) : (
-        ""
-      )}
+      ) : null}
       <img
         style={{ maxWidth: 200, marginBottom: 10 }}
         src={preview.image}

@@ -6,6 +6,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
+import Alert from "@mui/material/Alert";
 
 export default function ModalRegister({
   openRegister,
@@ -13,6 +14,7 @@ export default function ModalRegister({
   handleSelect,
   gender,
   handleRegisterSubmit,
+  alert,
 }) {
   const style = {
     position: "absolute",
@@ -20,7 +22,7 @@ export default function ModalRegister({
     left: "50%",
     transform: "translate(-50%, -50%)",
     width: { xs: 300, md: 600 },
-    height: "100%",
+    height: "90%",
     bgcolor: "#161616",
     border: "2px solid #000",
     boxShadow: 24,
@@ -56,6 +58,14 @@ export default function ModalRegister({
               >
                 Register
               </Typography>
+              {alert.alert ? (
+                <Alert
+                  severity="error"
+                  sx={{ ml: { md: 12 }, mt: 2, width: "100%" }}
+                >
+                  {alert.message}
+                </Alert>
+              ) : null}
               <TextField
                 fullWidth
                 size="small"
@@ -226,8 +236,8 @@ export default function ModalRegister({
                   ml: { md: 12 },
                   mt: 3,
                   mb: 5,
-                  pl: { xs: 12, md: 19 },
-                  pr: { xs: 12, md: 19 },
+                  pl: { xs: 10, md: 17.5 },
+                  pr: { xs: 10, md: 17.5 },
                 }}
                 variant="contained"
                 color="error"

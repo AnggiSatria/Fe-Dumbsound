@@ -4,11 +4,13 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import Alert from "@mui/material/Alert";
 
 export default function ModalLogin({
   openLogin,
   handleCloseLogin,
   handleLoginSubmit,
+  alert,
 }) {
   const style = {
     position: "absolute",
@@ -45,6 +47,14 @@ export default function ModalLogin({
               >
                 Login
               </Typography>
+              {alert.alert ? (
+                <Alert
+                  severity="error"
+                  sx={{ ml: { xs: 3, md: 6 }, mt: 2, width: "100%" }}
+                >
+                  {alert.message}
+                </Alert>
+              ) : null}
               <TextField
                 fullWidth
                 sx={{

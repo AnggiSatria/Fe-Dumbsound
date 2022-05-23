@@ -24,6 +24,10 @@ export default function HomePage() {
   const handleCloseRegister = () => setOpenRegister(false);
 
   const [gender, setGender] = React.useState("male");
+  const [alert, setAlert] = React.useState({
+    alert: false,
+    message: "",
+  });
 
   const handleSelect = (event) => {
     setGender(event.target.value);
@@ -61,7 +65,10 @@ export default function HomePage() {
         navigate("/user");
       }
     } catch (error) {
-      console.log(error);
+      setAlert({
+        alert: true,
+        message: error.response.data.message,
+      });
     }
   };
 
@@ -84,7 +91,10 @@ export default function HomePage() {
         navigate("/user");
       }
     } catch (error) {
-      console.log(error);
+      setAlert({
+        alert: true,
+        message: error.response.data.message,
+      });
     }
   };
 
@@ -113,6 +123,7 @@ export default function HomePage() {
         <AppbarHome
           ModalRegister={
             <ModalRegister
+              alert={alert}
               handleRegisterSubmit={handleRegisterSubmit}
               openRegister={openRegister}
               handleSelect={handleSelect}
@@ -122,6 +133,7 @@ export default function HomePage() {
           }
           ModalLogin={
             <ModalLogin
+              alert={alert}
               handleLoginSubmit={handleLoginSubmit}
               openLogin={openLogin}
               handleCloseLogin={handleCloseLogin}
