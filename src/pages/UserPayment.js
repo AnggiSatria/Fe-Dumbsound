@@ -42,7 +42,6 @@ export default function UserPayment() {
   const HandleSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log(e.target.payment.value);
       const config = {
         headers: {
           "Content-type": "application/json",

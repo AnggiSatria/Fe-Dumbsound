@@ -8,7 +8,14 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 
 export default function TableAdmin({ columns, transactions }) {
-  // console.log(transactions);
+  const DataEndDate = (value) => {
+    let d = new Date(value);
+    let dnow = new Date();
+    let bulan = d.getMonth();
+    let hari = d.getDate();
+    let tahun = d.getFullYear();
+    return `${hari}-${bulan}-${tahun}`;
+  };
   return (
     <Paper sx={{ width: "100%" }}>
       <TableContainer sx={{ maxHeight: 440 }}>
@@ -46,7 +53,7 @@ export default function TableAdmin({ columns, transactions }) {
                     {value.buyer.fullname}
                   </TableCell>
                   <TableCell align="left" sx={{ color: "white" }}>
-                    {value.id}
+                    {DataEndDate(value.endDate)}
                   </TableCell>
                   <TableCell align="left" sx={{ color: "white" }}>
                     {value.status}
