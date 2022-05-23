@@ -2,10 +2,12 @@ import React from "react";
 import Box from "@mui/material/Box";
 import AppbarAdmin from "../component/Admin/AppbarAdmin";
 import TableAdmin from "../component/Admin/TableAdmin";
+import { API } from "../config/axios";
 
 export default function AdminPage() {
   document.body.style.backgroundColor = "black";
   const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [transactions, setTransactions] = React.useState(null);
   const pages = ["Add Music", "Add Artist", "Logout"];
 
   const handleOpenNavMenu = (event) => {
@@ -15,6 +17,18 @@ export default function AdminPage() {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
+
+  React.useEffect(() => {
+    const getTransaction = async () => {
+      try {
+        const response = await API.get("/transactions");
+        setTransactions(response.data.data.dataTransaction);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getTransaction();
+  }, []);
 
   const columns = [
     { id: "no", label: "No", minWidth: 170, align: "left" },
@@ -46,7 +60,7 @@ export default function AdminPage() {
           mt: 10,
         }}
       >
-        <TableAdmin columns={columns} />
+        <TableAdmin transactions={transactions} columns={columns} />
       </Box>
     </Box>
   );

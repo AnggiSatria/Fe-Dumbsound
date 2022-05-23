@@ -7,7 +7,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 
-export default function TableAdmin({ columns }) {
+export default function TableAdmin({ columns, transactions }) {
+  // console.log(transactions);
   return (
     <Paper sx={{ width: "100%" }}>
       <TableContainer sx={{ maxHeight: 440 }}>
@@ -27,50 +28,35 @@ export default function TableAdmin({ columns }) {
             </TableRow>
           </TableHead>
           <TableBody>
-            <TableRow
-              hover
-              role="checkbox"
-              sx={{ "& .MuiTableCell-root": { bgcolor: "#3A3A3A" } }}
-              tabIndex={-1}
-            >
-              <TableCell align="left" sx={{ color: "white" }}>
-                loremIpsum
-              </TableCell>
-              <TableCell align="left" sx={{ color: "white" }}>
-                loremIpsum
-              </TableCell>
-              <TableCell align="left" sx={{ color: "white" }}>
-                loremIpsum
-              </TableCell>
-              <TableCell align="left" sx={{ color: "white" }}>
-                loremIpsum
-              </TableCell>
-              <TableCell align="left" sx={{ color: "white" }}>
-                loremIpsum
-              </TableCell>
-            </TableRow>
-            <TableRow
-              hover
-              role="checkbox"
-              tabIndex={-1}
-              sx={{ "& .MuiTableCell-root": { bgcolor: "#2B2B2B" } }}
-            >
-              <TableCell align="left" sx={{ color: "white" }}>
-                loremIpsum
-              </TableCell>
-              <TableCell align="left" sx={{ color: "white" }}>
-                loremIpsum
-              </TableCell>
-              <TableCell align="left" sx={{ color: "white" }}>
-                loremIpsum
-              </TableCell>
-              <TableCell align="left" sx={{ color: "white" }}>
-                loremIpsum
-              </TableCell>
-              <TableCell align="left" sx={{ color: "white" }}>
-                loremIpsum
-              </TableCell>
-            </TableRow>
+            {transactions?.map((value) => {
+              return (
+                <TableRow
+                  key={value.id}
+                  hover
+                  role="checkbox"
+                  className={`${
+                    value.id % 2 === 0 ? "tableatas" : "tablebawah"
+                  }`}
+                  tabIndex={-1}
+                >
+                  <TableCell align="left" sx={{ color: "white" }}>
+                    {value.id}
+                  </TableCell>
+                  <TableCell align="left" sx={{ color: "white" }}>
+                    {value.buyer.fullname}
+                  </TableCell>
+                  <TableCell align="left" sx={{ color: "white" }}>
+                    {value.id}
+                  </TableCell>
+                  <TableCell align="left" sx={{ color: "white" }}>
+                    {value.status}
+                  </TableCell>
+                  <TableCell align="left" sx={{ color: "white" }}>
+                    {value.status}
+                  </TableCell>
+                </TableRow>
+              );
+            })}
           </TableBody>
         </Table>
       </TableContainer>
