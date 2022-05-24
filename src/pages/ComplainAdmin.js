@@ -123,6 +123,7 @@ export default function ComplainAdmin() {
             </Grid>
             <Grid item xs={9} sx={{ mt: 2 }}>
               <Chat
+                user={user.user?.id}
                 contact={contact}
                 messages={messages}
                 sendMessage={onSendMessage}

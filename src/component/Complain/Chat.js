@@ -17,6 +17,7 @@ export default function Chat({ contact, messages, sendMessage, user }) {
       >
         <Box>
           {messages.map((value) => {
+            // console.log(value);
             return (
               <Box
                 sx={{ display: "flex", mt: 2 }}

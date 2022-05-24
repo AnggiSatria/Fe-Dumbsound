@@ -4,7 +4,6 @@ import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 
 export default function Contact({ dataContact, clickContact, contact }) {
-  console.log(dataContact);
   return (
     <Box sx={{ height: "80vh" }}>
       {dataContact?.map((value) => {
