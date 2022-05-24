@@ -6,24 +6,18 @@ import { useSelector } from "react-redux";
 import { selectUser } from "../redux/userSlice";
 
 const PrivateRoute = () => {
-  const navigate = useNavigate();
-  const user = useSelector(selectUser);
-
-  React.useEffect(() => {
-    const getUsers = async () => {
-      try {
-        const response = await API.get("/users");
-        if (response.data.data.users.status === "admin") {
-          navigate("/admin");
-        } else if (response.data.data.users.status === "user") {
-          navigate("/user");
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getUsers();
-  }, [user]);
+  // const navigate = useNavigate();
+  // const user = useSelector(selectUser);
+  // React.useEffect(() => {
+  //   const getUsers = async () => {
+  //     try {
+  //       const response = await API.get("/users");
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   getUsers();
+  // }, [user]);
 
   let Getdatalogin = localStorage.getItem("token");
   let token = false;
