@@ -10,38 +10,33 @@ export default function Chat({ contact, messages, sendMessage, user }) {
           height: "80vh",
           px: 2,
           py: 2,
-          display: "flex",
-          flexDirection: "column",
         }}
         className="overflow-auto"
       >
-        <Box>
-          {messages.map((value) => {
-            // console.log(value);
-            return (
-              <Box
-                sx={{ display: "flex", mt: 2 }}
-                className={`${
-                  value.idSender === user
-                    ? "justify-content-end"
-                    : "justify-content-start"
-                }`}
-              >
-                <Avatar>H</Avatar>
-                <Box className={`chat-other`} sx={{ ml: 3 }}>
-                  {value.message}
-                </Box>
+        {messages.map((value) => {
+          return (
+            <Box
+              sx={{ display: "flex", mt: 2 }}
+              className={`${
+                value.idSender === user
+                  ? "justify-content-end"
+                  : "justify-content-start"
+              }`}
+            >
+              <Avatar>H</Avatar>
+              <Box className={`chat-other`} sx={{ ml: 3 }}>
+                {value.message}
               </Box>
-            );
-          })}
-        </Box>
-        <Box style={{ height: "6vh" }}>
-          <input
-            placeholder="Send Message"
-            className="input-message"
-            onKeyPress={sendMessage}
-          />
-        </Box>
+            </Box>
+          );
+        })}
+      </Box>
+      <Box style={{ height: "6vh" }}>
+        <input
+          placeholder="Send Message"
+          className="input-message"
+          onKeyPress={sendMessage}
+        />
       </Box>
     </Box>
   );

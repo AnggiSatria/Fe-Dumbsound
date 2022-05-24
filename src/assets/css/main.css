@@ -84,7 +84,8 @@
 }
 
 .input-message {
-    width: 100%;
+    padding: 20px;
+    width: 98%;
     height: 90%;
     background: rgba(171, 171, 171, 0.15);
     border: none;
