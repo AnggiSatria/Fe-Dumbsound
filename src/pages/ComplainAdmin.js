@@ -18,8 +18,6 @@ export default function ComplainAdmin() {
   const [messages, setMessages] = React.useState([]);
   const user = useSelector(selectUser);
 
-  console.log(user.user.id);
-
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };

@@ -82,3 +82,11 @@
 .justify-content-start {
     justify-content: flex-start !important
 }
+
+.input-message {
+    width: 100%;
+    height: 90%;
+    background: rgba(171, 171, 171, 0.15);
+    border: none;
+    color: #ffffff;
+}
