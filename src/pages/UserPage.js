@@ -20,7 +20,7 @@ export default function UserPage() {
       <Box
         style={{
           backgroundImage: `url(${require("../assets/img/bgheader.png")})`,
-          height: 630,
+          height: 400,
         }}
       >
         <AppbarUser

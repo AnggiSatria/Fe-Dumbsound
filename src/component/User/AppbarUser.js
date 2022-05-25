@@ -143,6 +143,7 @@ export default function AppbarUser({
                       </Typography>
                     </Box>
                   ) : (
+                    
                     <Box
                       sx={{ display: "flex", flexDirection: "row" }}
                       onClick={Logout}
@@ -234,13 +235,22 @@ export default function AppbarUser({
           </Typography>
           <Typography
             variant="h6"
-            style={{ marginTop: 30 }}
+            style={{ marginTop: 30, fontFamily: "Lucida Console, Courier New, monospace"}}
             component="h6"
             align="center"
             color="white"
           >
-            Discovery, Stream, and share a constantly expanding mix of music
-            from emerging and major artists around the world
+            Discovery, Stream, and share a constantly 
+          </Typography>
+          <Typography
+          variant="h6"
+          style={{ marginTop: 30, fontFamily: "Lucida Console, Courier New, monospace"}}
+          component="h6"
+          align="center"
+          color="white"
+          >
+            expanding mix of music from
+            emerging and major artists around the world
           </Typography>
         </Container>
       )}

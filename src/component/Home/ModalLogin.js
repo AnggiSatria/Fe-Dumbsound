@@ -61,7 +61,7 @@ export default function ModalLogin({
                   bgcolor: "#D2D2D2",
                   mt: 2,
                   ml: { xs: 3, md: 6 },
-                  "& .Mui-focused": { color: "white" },
+                  "& .Mui-focused": { color: "black" },
                   "& .MuiInput-underline:after": {
                     borderBottomColor: "black",
                   },
@@ -87,8 +87,8 @@ export default function ModalLogin({
                   bgcolor: "#D2D2D2",
                   mt: 2,
                   ml: { xs: 3, md: 6 },
-                  "& .Mui-focused": { color: "white" },
-                  "& .Mui-focused": { color: "white" },
+                  "& .Mui-focused": { color: "black" },
+                  "& .Mui-focused": { color: "black" },
                   "& .MuiInput-underline:after": {
                     borderBottomColor: "black",
                   },

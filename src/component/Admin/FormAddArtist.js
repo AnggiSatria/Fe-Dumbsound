@@ -63,6 +63,10 @@ export default function FormAddArtist({
           <MenuItem value={"Solo"}>Solo</MenuItem>
           <MenuItem value={"Rock"}>Rock</MenuItem>
           <MenuItem value={"Slow Rock"}>Slow Rock</MenuItem>
+          <MenuItem value={"Pop"}>Pop</MenuItem>
+          <MenuItem value={"Hip Hop"}>Hip Hop</MenuItem>
+          <MenuItem value={"Reggae"}>Reggae</MenuItem>
+          <MenuItem value={"Pop Punk"}>Pop Punk</MenuItem>
         </Select>
         <TextField
           size="small"

@@ -10,6 +10,7 @@ import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import Css from "../../assets/css/main.css";
 
 export default function AppbarHome({
   pages,
@@ -122,7 +123,7 @@ export default function AppbarHome({
       <Container>
         <Typography
           variant="h4"
-          style={{ marginTop: 110 }}
+          style={{ marginTop: 110, fontFamily : "Tahoma, Verdana, sans-serif" }}
           component="h4"
           align="center"
           color="white"
@@ -131,13 +132,23 @@ export default function AppbarHome({
         </Typography>
         <Typography
           variant="h6"
-          style={{ marginTop: 30 }}
+          style={{ marginTop: 30, fontFamily: "Lucida Console, Courier New, monospace" }}
           component="h6"
           align="center"
           color="white"
+          className={Css.allFont}
         >
-          Discovery, Stream, and share a constantly expanding mix of music from
-          emerging and major artists around the world
+          Discovery, Stream, and share a constantly 
+        </Typography>
+        <Typography
+        variant="h6"
+        style={{ marginTop: 30, fontFamily: "Lucida Console, Courier New, monospace" }}
+        component="h6"
+        align="center"
+        color="white"
+        className={Css.allFont}>
+        expanding mix of music from
+        emerging and major artists around the world
         </Typography>
         {ModalLogin}
         {ModalRegister}

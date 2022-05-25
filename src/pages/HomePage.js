@@ -11,7 +11,7 @@ import ModalRegister from "../component/Home/ModalRegister";
 
 export default function HomePage() {
   const navigate = useNavigate();
-  const pages = ["Login", "Register"];
+  const pages = ["Login", "Register", "Complain"];
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [music, setMusic] = React.useState(null);
 
@@ -28,6 +28,9 @@ export default function HomePage() {
     alert: false,
     message: "",
   });
+
+  const [compain, setComplain] = React.useState(false);
+  const handleComplain = () => setComplain(true);
 
   const handleSelect = (event) => {
     setGender(event.target.value);
@@ -88,7 +91,11 @@ export default function HomePage() {
       if (response.status === 201) {
         localStorage.setItem("token", response.data.data.user.token);
         dispatch(LOGIN_SUCCESS(response.data.data.user));
-        navigate("/user");
+        if(response.data.data.user.status === "admin"){
+          navigate("/admin")
+        }else{
+          navigate("/user");
+        }
       }
     } catch (error) {
       setAlert({
@@ -117,7 +124,7 @@ export default function HomePage() {
       <Box
         style={{
           backgroundImage: `url(${require("../assets/img/bgheader.png")})`,
-          height: 612,
+          height: 400,
         }}
       >
         <AppbarHome

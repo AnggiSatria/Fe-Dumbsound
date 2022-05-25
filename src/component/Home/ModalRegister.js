@@ -73,7 +73,7 @@ export default function ModalRegister({
                   bgcolor: "#D2D2D2",
                   mt: 2,
                   ml: { md: 12 },
-                  "& .Mui-focused": { color: "white" },
+                  "& .Mui-focused": { color: "black" },
                   "& .MuiInput-underline:after": {
                     borderBottomColor: "black",
                   },
@@ -99,7 +99,7 @@ export default function ModalRegister({
                   bgcolor: "#D2D2D2",
                   mt: 2,
                   ml: { md: 12 },
-                  "& .Mui-focused": { color: "white" },
+                  "& .Mui-focused": { color: "black" },
                   "& .MuiInput-underline:after": {
                     borderBottomColor: "black",
                   },
@@ -126,7 +126,7 @@ export default function ModalRegister({
                   bgcolor: "#D2D2D2",
                   mt: 2,
                   ml: { md: 12 },
-                  "& .Mui-focused": { color: "white" },
+                  "& .Mui-focused": { color: "black" },
                   "& .MuiInput-underline:after": {
                     borderBottomColor: "black",
                   },
@@ -152,7 +152,7 @@ export default function ModalRegister({
                   bgcolor: "#D2D2D2",
                   mt: 2,
                   ml: { md: 12 },
-                  "& .Mui-focused": { color: "white" },
+                  "& .Mui-focused": { color: "black" },
                   "& .MuiInput-underline:after": {
                     borderBottomColor: "black",
                   },
@@ -175,6 +175,7 @@ export default function ModalRegister({
                 label="Gender"
                 onChange={handleSelect}
               >
+                <MenuItem selected disabled>Gender</MenuItem>
                 <MenuItem value={"male"}>Male</MenuItem>
                 <MenuItem value={"female"}>Female</MenuItem>
               </Select>
@@ -184,7 +185,7 @@ export default function ModalRegister({
                   bgcolor: "#D2D2D2",
                   mt: 2,
                   ml: { md: 12 },
-                  "& .Mui-focused": { color: "white" },
+                  "& .Mui-focused": { color: "black" },
                   "& .MuiInput-underline:after": {
                     borderBottomColor: "black",
                   },
@@ -211,7 +212,7 @@ export default function ModalRegister({
                   bgcolor: "#D2D2D2",
                   mt: 2,
                   ml: { md: 12 },
-                  "& .Mui-focused": { color: "white" },
+                  "& .Mui-focused": { color: "black" },
                   "& .MuiInput-underline:after": {
                     borderBottomColor: "black",
                   },
